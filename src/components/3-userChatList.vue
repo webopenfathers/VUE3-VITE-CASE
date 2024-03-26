@@ -8,12 +8,19 @@
         :key="index"
         :style="{ 'flex-direction': item.flag ? 'row' : 'row-reverse' }"
       >
+        <!-- 头像 -->
         <img :src="item.avatar" alt="" />
+        <!-- 文字 或 图片 -->
         <div v-if="item.type === 1" class="text-word">{{ item.text }}</div>
-        <div v-if="item.type === 2" class="text-img">
+        <div
+          v-if="item.type === 2"
+          class="text-img"
+          :style="{ height: getImageHeight(item.text) + 'px' }"
+        >
           <el-image :src="item.text" :preview-src-list="[item.text]">
           </el-image>
         </div>
+        <!-- 文字 或 图片 -->
       </div>
     </div>
 
@@ -32,8 +39,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, nextTick } from 'vue'
 const inputText = ref('')
+// 此处userId 1在左  0在右
 const userId = ref(1)
 const list = ref([
   {
@@ -54,19 +62,43 @@ const list = ref([
     type: 2, // 1.文字 2.图片
     flag: 1, // 1 在左 0 在右 真是开发依据用户ID
   },
+  {
+    avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
+    text: 'https://images.pexels.com/photos/5313576/pexels-photo-5313576.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    type: 2, // 1.文字 2.图片
+    flag: 1, // 1 在左 0 在右 真是开发依据用户ID
+  },
 ])
+
+// 动态计算每张图片的高度并返回
+const getImageHeight = (url) => {
+  let img = new Image()
+  let aspectRatio = 0
+  img.src = url
+  img.onload = () => {
+    aspectRatio = img.width / img.height
+    return 200 / aspectRatio
+  }
+}
 
 //发送按钮
 const sendMsg = () => {
-  list.value.push({
-    avatar:
-      userId.value === 1
-        ? new URL('../assets/touxiang.png', import.meta.url).href
-        : new URL('../assets/touxiang2.png', import.meta.url).href,
-    text: inputText.value,
-    type: 1, // 1.文字 2.图片
-    flag: userId.value, // 1 在左 0 在右 真是开发依据用户ID
-  })
+  // 测试发送不同的数据
+  if (userId.value === 1) {
+    list.value.push({
+      avatar: new URL('../assets/touxiang.png', import.meta.url).href,
+      text: inputText.value,
+      type: 1, // 文字
+      flag: userId.value, // 1 在左 0 在右 真是开发依据用户ID
+    })
+  } else {
+    list.value.push({
+      avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
+      text: 'https://images.pexels.com/photos/10413401/pexels-photo-10413401.jpeg',
+      type: 2, // 图片
+      flag: userId.value, // 1 在左 0 在右 真是开发依据用户ID
+    })
+  }
 
   inputText.value = ''
   if (userId.value === 0) {
@@ -124,8 +156,7 @@ const sendMsg = () => {
 }
 
 .text-img {
-  width: 135px;
-  height: 76px;
+  width: 200px;
   margin: 5px;
   border-radius: 5px;
   padding: 10px;
