@@ -39,17 +39,36 @@
       <el-icon
         color="#409eff"
         size="40"
-        style="margin-right: 5px"
+        style="margin-right: 5px; cursor: pointer"
         @click="fileRef.click()"
         ><Picture
       /></el-icon>
+      <el-icon
+        color="#409eff"
+        size="40"
+        style="margin-right: 5px; cursor: pointer"
+        @click="fileVideoRef.click()"
+        ><Film
+      /></el-icon>
+      <!-- 图片上传 -->
       <input
         type="file"
         ref="fileRef"
+        :key="picNum"
         multiple
         style="display: none"
         @change="changeFile"
         accept=".png,jpg"
+      />
+      <!-- 视频上传 -->
+      <input
+        type="file"
+        ref="fileVideoRef"
+        :key="videoNum"
+        multiple
+        style="display: none"
+        @change="changeVideoFile"
+        accept=".mp4"
       />
       <el-input v-model="inputText"></el-input>
       <el-button
@@ -67,6 +86,10 @@
 import { ref, nextTick, onMounted } from 'vue'
 // 上传文件Ref
 const fileRef = ref(null)
+const picNum = ref(0)
+// 视频上传
+const fileVideoRef = ref(null)
+const videoNum = ref(0)
 const inputText = ref('')
 // 此处userId 1在左  0在右
 const userId = ref(1)
@@ -201,6 +224,23 @@ const changeFile = (e) => {
       flag: 1,
     })
   })
+  picNum.value++
+  goToBottom()
+}
+
+// 发送视频逻辑
+const changeVideoFile = (e) => {
+  const fileList = Array.from(e.target.files)
+  fileList.forEach((item) => {
+    const url = window.URL.createObjectURL(item)
+    list.value.push({
+      avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
+      text: url,
+      type: 3,
+      flag: 1,
+    })
+  })
+  videoNum.value++
   goToBottom()
 }
 
