@@ -23,8 +23,8 @@
         <!-- 纯视频 -->
         <div v-if="item.type === 3" class="text-video">
           <video
-            width="300px"
-            height="180px"
+            :width="item.videoW + 'px'"
+            :height="item.videoH + 'px'"
             controls="true"
             :poster="item.poster"
           >
@@ -145,13 +145,19 @@ const list = ref([
   },
 ])
 
-// 初始化所有图片宽高
+// 初始化所有图片和视频宽高
 const initImage = () => {
   list.value.forEach(async (item, index) => {
+    // 图片类型
     if (item.type === 2) {
       const { imgW, imgH } = await getImageHeight(item.text)
       item.imgW = imgW
       item.imgH = imgH
+    } else if (item.type === 3) {
+      // 视频类型
+      const { videoW, videoH } = await getVideoHeight(item.text)
+      item.videoW = videoW
+      item.videoH = videoH
     }
   })
 }
@@ -160,7 +166,6 @@ const initImage = () => {
 const getImageHeight = (url) => {
   let img = new Image()
   let aspectRatio = 0
-  img.src = url
   return new Promise((resolve) => {
     img.onload = () => {
       aspectRatio = img.width / img.height
@@ -177,6 +182,32 @@ const getImageHeight = (url) => {
         })
       }
     }
+    img.src = url
+  })
+}
+
+// 同步获取视频宽高
+const getVideoHeight = (url) => {
+  let video = document.createElement('video')
+  let aspectRatio = 0
+  return new Promise((resolve) => {
+    video.onloadedmetadata = () => {
+      aspectRatio = video.videoWidth / video.videoHeight
+      console.log(aspectRatio)
+      let wFlag = 250 > video.videoWidth
+      if (wFlag) {
+        resolve({
+          videoW: video.videoWidth,
+          videoH: video.videoHeight,
+        })
+      } else {
+        resolve({
+          videoW: 250,
+          videoH: 250 / aspectRatio,
+        })
+      }
+    }
+    video.src = url
   })
 }
 
@@ -231,11 +262,15 @@ const changeFile = (e) => {
 // 发送视频逻辑
 const changeVideoFile = (e) => {
   const fileList = Array.from(e.target.files)
-  fileList.forEach((item) => {
+  fileList.forEach(async (item) => {
     const url = window.URL.createObjectURL(item)
+    const { videoW, videoH } = await getVideoHeight(url)
+    console.log(videoW, videoH)
     list.value.push({
       avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
       text: url,
+      videoW,
+      videoH,
       type: 3,
       flag: 1,
     })
