@@ -58,7 +58,7 @@
         multiple
         style="display: none"
         @change="changeFile"
-        accept=".png,jpg"
+        accept=".xlsx"
       />
       <!-- 视频上传 -->
       <input
@@ -79,6 +79,15 @@
         >发送</el-button
       >
     </div>
+    <iframe
+      :src="
+        'http://view.officeapps.live.com/op/view.aspx?src=' +
+        'http://localhost:5173/cc45cf50-b793-4a96-8826-95585edf5b86.xlsx'
+      "
+      frameborder="0"
+      style="z-index: 1000; height: 560px; width: 100%"
+    >
+    </iframe>
   </div>
 </template>
 
@@ -87,6 +96,7 @@ import { ref, nextTick, onMounted } from 'vue'
 // 上传文件Ref
 const fileRef = ref(null)
 const picNum = ref(0)
+const fileUrl = ref('')
 // 视频上传
 const fileVideoRef = ref(null)
 const videoNum = ref(0)
@@ -245,15 +255,17 @@ const changeFile = (e) => {
   const fileList = Array.from(e.target.files)
   fileList.forEach(async (item) => {
     const url = window.URL.createObjectURL(item)
-    const { imgW, imgH } = await getImageHeight(url)
-    list.value.push({
-      avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
-      text: url,
-      imgW,
-      imgH,
-      type: 2,
-      flag: 1,
-    })
+    console.log(url)
+    fileUrl.value = url
+    // const { imgW, imgH } = await getImageHeight(url)
+    // list.value.push({
+    //   avatar: new URL('../assets/touxiang2.png', import.meta.url).href,
+    //   text: url,
+    //   imgW,
+    //   imgH,
+    //   type: 2,
+    //   flag: 1,
+    // })
   })
   picNum.value++
   goToBottom()
