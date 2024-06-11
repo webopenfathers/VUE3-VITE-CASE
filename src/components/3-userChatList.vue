@@ -79,15 +79,6 @@
         >发送</el-button
       >
     </div>
-    <iframe
-      :src="
-        'http://view.officeapps.live.com/op/view.aspx?src=' +
-        'http://localhost:5173/cc45cf50-b793-4a96-8826-95585edf5b86.xlsx'
-      "
-      frameborder="0"
-      style="z-index: 1000; height: 560px; width: 100%"
-    >
-    </iframe>
   </div>
 </template>
 
