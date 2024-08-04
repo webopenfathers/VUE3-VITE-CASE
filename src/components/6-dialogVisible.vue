@@ -10,8 +10,10 @@
 <script setup>
 import $ from 'jquery'
 import { onMounted } from 'vue'
+import { getDateDiff } from '../utils/index'
 
 onMounted(() => {
+  console.log(getDateDiff('2024-08-02 17:06:23'), '人性化时间显示')
   // 车辆信息弹出框的显示隐藏效果
   $('.infoBtn').on('click', function () {
     $('.filterbg').show()
