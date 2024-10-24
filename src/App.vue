@@ -10,7 +10,8 @@
   <!-- vue悬浮可拖拽组件：原生JS -->
   <!-- <dragElementJS></dragElementJS> -->
   <!-- <CollapsePanel></CollapsePanel> -->
-  <dialogVisible></dialogVisible>
+  <!-- <dialogVisible></dialogVisible> -->
+  <scrollToUp></scrollToUp>
 </template>
 
 <script setup>
@@ -20,7 +21,8 @@
 // import dragElementDirective from './components/4-dragElement-directive.vue'
 // import dragElementJS from './components/4-dragElement-js.vue'
 // import CollapsePanel from './components/5-collapse-panel.vue'
-import dialogVisible from './components/6-dialogVisible.vue'
+// import dialogVisible from './components/6-dialogVisible.vue'
+import scrollToUp from './components/7-官网平滑滚动动画.vue'
 </script>
 
 <style>

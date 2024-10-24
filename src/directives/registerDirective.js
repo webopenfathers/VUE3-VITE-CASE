@@ -1,4 +1,4 @@
-// 图片懒加载自定义指令
+// 1.图片懒加载自定义指令
 const lazy = {
   mounted(el, bindings) {
     const ob = new IntersectionObserver(
@@ -23,7 +23,7 @@ const lazy = {
   },
 }
 
-// 元素自定义拖拽指令
+// 2.元素自定义拖拽指令
 const drag = {
   mounted(el) {
     // 获取浏览器窗口文档显示区域的宽度和高度,不包括滚动条。
@@ -57,4 +57,62 @@ const drag = {
   },
 }
 
-export { lazy, drag }
+// 3.实现元素平滑上升动画
+const DISTANCE = 100
+const DURATION = 500
+const map = new WeakMap()
+
+const ob = new IntersectionObserver((entries) => {
+  for (const entry of entries) {
+    // 元素出现在视口中
+    if (entry.isIntersecting) {
+      // 播放动画
+      const animation = map.get(entry.target)
+      animation && animation.play()
+      ob.unobserve(entry.target)
+    }
+  }
+})
+
+function isBelowViewport(el) {
+  const { top } = el.getBoundingClientRect()
+  return top > window.innerHeight
+}
+
+const slideIn = {
+  mounted(el) {
+    if (!isBelowViewport(el)) {
+      return
+    }
+    /**
+     * 关键帧 @keyframes
+     * 动画配置 animation
+     */
+    const animation = el.animate(
+      [
+        {
+          transform: `translateY(${DISTANCE}px)`,
+          opacity: 0.5,
+        },
+        {
+          transform: `translateY(0)`,
+          opacity: 1,
+        },
+      ],
+      {
+        duration: DURATION,
+        easeing: 'ease-out',
+        fill: 'forwards',
+      }
+    )
+
+    animation.pause()
+    map.set(el, animation)
+    ob.observe(el)
+  },
+  unmounted(el) {
+    ob.unobserve(el)
+  },
+}
+
+export { lazy, drag, slideIn }

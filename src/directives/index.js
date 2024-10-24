@@ -1,8 +1,9 @@
-import { lazy, drag } from './registerDirective'
+import { lazy, drag, slideIn } from './registerDirective'
 
 const directives = {
   lazy,
   drag,
+  slideIn,
 }
 
 // 批量注册自定义全局指令
