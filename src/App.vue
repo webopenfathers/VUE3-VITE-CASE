@@ -11,7 +11,8 @@
   <!-- <dragElementJS></dragElementJS> -->
   <!-- <CollapsePanel></CollapsePanel> -->
   <!-- <dialogVisible></dialogVisible> -->
-  <scrollToUp></scrollToUp>
+  <!-- <scrollToUp></scrollToUp> -->
+  <manyTableHeader></manyTableHeader>
 </template>
 
 <script setup>
@@ -22,7 +23,8 @@
 // import dragElementJS from './components/4-dragElement-js.vue'
 // import CollapsePanel from './components/5-collapse-panel.vue'
 // import dialogVisible from './components/6-dialogVisible.vue'
-import scrollToUp from './components/7-官网平滑滚动动画.vue'
+// import scrollToUp from './components/7-官网平滑滚动动画.vue'
+import manyTableHeader from './components/8-导出excel多级表头功能.vue'
 </script>
 
 <style>
