@@ -41,7 +41,7 @@
 <script setup>
 import XLSX from 'xlsx-js-style'
 import { reactive, ref } from 'vue'
-console.log(XLSX)
+
 const tableData = reactive([
   {
     date: '2016-05-03',
@@ -197,6 +197,13 @@ const setExlStyle = (data) => {
     wrapText: true, // 自动换行
   }
 
+  // 填充
+  const fill = {
+    fgColor: {
+      rgb: '6fa8dc',
+    },
+  }
+
   // 获取表格的有效范围
   const range = XLSX.utils.decode_range(data['!ref'])
   // cellList：xlsx自动创建的excel单元格，去掉带！开头的就是所有单元格
@@ -211,7 +218,12 @@ const setExlStyle = (data) => {
       if (cellList.indexOf(cell) < 0) {
         data[cell] = { t: '', v: '', s: { border, font, alignment } }
       } else {
-        data[cell].s = { border, font, alignment }
+        // 为指定单元格填充样式，则默认填充背景色
+        if (['日期', '配送信息'].includes(data[cell].v)) {
+          data[cell].s = { border, font, alignment, fill }
+        } else {
+          data[cell].s = { border, font, alignment }
+        }
       }
     }
   }
