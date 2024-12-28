@@ -12,7 +12,8 @@
   <!-- <CollapsePanel></CollapsePanel> -->
   <!-- <dialogVisible></dialogVisible> -->
   <!-- <scrollToUp></scrollToUp> -->
-  <manyTableHeader></manyTableHeader>
+  <!-- <manyTableHeader></manyTableHeader> -->
+  <manyTableRowANDColumn></manyTableRowANDColumn>
 </template>
 
 <script setup>
@@ -24,7 +25,8 @@
 // import CollapsePanel from './components/5-collapse-panel.vue'
 // import dialogVisible from './components/6-dialogVisible.vue'
 // import scrollToUp from './components/7-官网平滑滚动动画.vue'
-import manyTableHeader from './components/8-导出excel多级表头功能.vue'
+// import manyTableHeader from './components/8-导出excel多级表头功能.vue'
+import manyTableRowANDColumn from './components/9-导出excel多行合并功能.vue'
 </script>
 
 <style>
