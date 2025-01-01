@@ -7,8 +7,8 @@
 - 5 - 折叠搜索框。
 - 10 - 导需求 excel 表格
 - 制作表格
-- ![alt text](./src/assets/10-1.png)
+<!-- - ![alt text](./src/assets/10-1.png) -->
 - 导出表格
-  ![alt text](./src/assets/10-2.png)
+  <!-- ![alt text](./src/assets/10-2.png) -->
 - 11 - 自定义步骤条
-  ![alt text](./src/assets/11.png)
+  <!-- ![alt text](./src/assets/11.png) -->
