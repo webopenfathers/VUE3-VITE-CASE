@@ -16,7 +16,7 @@
           class="icon-size"
           @click="handleClick(index)"
           :class="activeIndex === index ? 'icon-click' : ''"
-          color="#80c342"
+          :color="i.color"
           ><CircleCheckFilled
         /></el-icon>
         <el-icon
@@ -24,7 +24,7 @@
           class="icon-size"
           @click="handleClick(index)"
           :class="activeIndex === index ? 'icon-click' : ''"
-          color="#ffd04d"
+          :color="i.color"
           ><WarningFilled
         /></el-icon>
 
@@ -33,7 +33,7 @@
           class="icon-size"
           @click="handleClick(index)"
           :class="activeIndex === index ? 'icon-click' : ''"
-          color="#ff3112"
+          :color="i.color"
           ><QuestionFilled
         /></el-icon>
 
@@ -42,24 +42,21 @@
           class="icon-size"
           @click="handleClick(index)"
           :class="activeIndex === index ? 'icon-click' : ''"
-          color="#ecefe5"
+          :color="i.color"
           ><CircleCloseFilled
         /></el-icon>
         <div class="icon-line"></div>
       </div>
       <!-- 文字 -->
-      <div class="step-bottom" :style="{ color: colorMap[i.status] }">
+      <div class="step-bottom" :style="{ color: i.color }">
         <div
           class="step-line"
           :style="{
-            'border-left': `2px solid ${colorMap[i.status]}`,
-            'border-bottom': `2px solid ${colorMap[i.status]}`,
+            'border-left': `2px solid ${i.color}`,
+            'border-bottom': `2px solid ${i.color}`,
           }"
         ></div>
-        <div
-          class="step-status"
-          :style="{ border: `2px solid ${colorMap[i.status]}` }"
-        >
+        <div class="step-status" :style="{ border: `2px solid ${i.color}` }">
           已完成
         </div>
         <div class="ellipsis-multiline">
@@ -111,6 +108,11 @@ const list = ref([
     desc: '测试testtest，测试testtest，测试testtest，测试testtest，测试testtest',
   },
 ])
+
+// 数据处理加入样式
+list.value.forEach((item) => {
+  item.color = colorMap[item.status]
+})
 
 // 点击效果
 const activeIndex = ref(0)

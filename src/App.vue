@@ -15,8 +15,8 @@
   <!-- <manyTableHeader></manyTableHeader> -->
   <!-- <manyTableRowANDColumn></manyTableRowANDColumn>  -->
   <!-- <xq></xq> -->
-  <!-- <stepLine></stepLine> -->
-  <stepLineColor></stepLineColor>
+  <stepLine></stepLine>
+  <!-- <stepLineColor></stepLineColor> -->
 </template>
 
 <script setup>
@@ -31,8 +31,8 @@
 // import manyTableHeader from './components/8-导出excel多级表头功能.vue'
 // import manyTableRowANDColumn from './components/9-导出excel多行合并功能.vue'
 // import xq from './components/10-需求导出excel表格.vue'
-// import stepLine from './components/11-自定义步骤条.vue'
-import stepLineColor from './components/12-自定义步骤条步骤条颜色更改.vue'
+import stepLine from './components/11-自定义步骤条.vue'
+// import stepLineColor from './components/12-自定义步骤条步骤条颜色更改.vue'
 </script>
 
 <style>
