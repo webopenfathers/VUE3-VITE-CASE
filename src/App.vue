@@ -17,7 +17,8 @@
   <!-- <xq></xq> -->
   <!-- <stepLine></stepLine> -->
   <!-- <stepLineColor></stepLineColor> -->
-  <bigFileSlice></bigFileSlice>
+  <!-- <bigFileSlice></bigFileSlice> -->
+  <fzTable></fzTable>
 </template>
 
 <script setup>
@@ -34,7 +35,8 @@
 // import xq from './components/10-需求导出excel表格.vue'
 // import stepLine from './components/11-自定义步骤条.vue'
 // import stepLineColor from './components/12-自定义步骤条步骤条颜色更改.vue'
-import bigFileSlice from './components/13-大文件分片上传.vue'
+// import bigFileSlice from './components/13-大文件分片上传.vue'
+import fzTable from './components/14-简单快捷方式导出合并行或合并列且分页的表格.vue'
 </script>
 
 <style>
