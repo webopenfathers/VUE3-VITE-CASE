@@ -18,7 +18,8 @@
   <!-- <stepLine></stepLine> -->
   <!-- <stepLineColor></stepLineColor> -->
   <!-- <bigFileSlice></bigFileSlice> -->
-  <fzTable></fzTable>
+  <!-- <fzTable></fzTable> -->
+  <websocket></websocket>
 </template>
 
 <script setup>
@@ -36,7 +37,8 @@
 // import stepLine from './components/11-自定义步骤条.vue'
 // import stepLineColor from './components/12-自定义步骤条步骤条颜色更改.vue'
 // import bigFileSlice from './components/13-大文件分片上传.vue'
-import fzTable from './components/14-简单快捷方式导出合并行或合并列且分页的表格.vue'
+// import fzTable from './components/14-简单快捷方式导出合并行或合并列且分页的表格.vue'
+import websocket from './components/15-websocket.vue'
 </script>
 
 <style>
