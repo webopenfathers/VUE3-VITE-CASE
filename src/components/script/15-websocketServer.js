@@ -13,7 +13,7 @@ server.on('close', function close() {
 server.on('connection', function connection(ws, req) {
   console.log('连接客户端成功')
   // 连接客户端成功发送欢迎信息给客户端
-  ws.send('Welcome 张博闻' + new Date().toDateString())
+  ws.send('Welcome 张博闻 Websocket服务连接成功' + new Date().toDateString())
 
   // 监听客户端发来的消息
   ws.on('message', function incoming(message) {

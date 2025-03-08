@@ -1,8 +1,16 @@
 <template>
   <div class="container">
-    <h2 style="text-align: center">WebSocket服务</h2>
-    <el-button style="margin: auto" @click="send">发送消息给服务端</el-button>
-    <h1>接收到服务端消息：{{ message }}</h1>
+    <h1 style="text-align: center">WebSocket服务</h1>
+    <h2>接收到服务端消息：</h2>
+    <ul>
+      <li style="font-size: 20px" v-for="(message, index) in messageList">
+        {{ index + 1 }} - {{ message }}
+      </li>
+    </ul>
+    <div style="display: flex; width: 50%">
+      <el-input v-model="inputVal"></el-input>
+      <el-button type="primary" @click="send">发送消息给服务端</el-button>
+    </div>
   </div>
 </template>
 <script setup>
@@ -12,7 +20,8 @@ const lockReconnect = ref(false)
 const reconnectTimer = ref(null)
 const startHeartTimer = ref(null)
 const serverTimeoutObj = ref(null)
-const message = ref('')
+const inputVal = ref('')
+const messageList = ref([])
 
 // 连接服务端websocket
 const connect = () => {
@@ -27,7 +36,7 @@ const connect = () => {
   ws.value.onmessage = (e) => {
     // 收到服务器信息，心跳重置，上报
     console.log('接收到服务端发送的消息', e.data)
-    message.value = e.data
+    messageList.value.push(e.data)
     startHeart()
   }
 
@@ -81,7 +90,9 @@ const startHeart = () => {
 }
 
 const send = () => {
-  ws.value.send(JSON.stringify({ name: '张博闻聊前端' }))
+  if (!inputVal.value) return
+  ws.value.send(JSON.stringify(inputVal.value))
+  inputVal.value = ''
 }
 </script>
 <style scoped>
