@@ -20,7 +20,8 @@
   <!-- <bigFileSlice></bigFileSlice> -->
   <!-- <fzTable></fzTable> -->
   <!-- <websocket></websocket> -->
-  <websocketHook></websocketHook>
+  <!-- <websocketHook></websocketHook> -->
+  <commandPopup></commandPopup>
 </template>
 
 <script setup>
@@ -40,7 +41,8 @@
 // import bigFileSlice from './components/13-大文件分片上传.vue'
 // import fzTable from './components/14-简单快捷方式导出合并行或合并列且分页的表格.vue'
 // import websocket from './components/15-websocket.vue'
-import websocketHook from './components/15-websocketHook.vue'
+// import websocketHook from './components/15-websocketHook.vue'
+import commandPopup from './components/commondComponent/index.vue' // 命令式弹窗
 </script>
 
 <style>
