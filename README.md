@@ -15,3 +15,4 @@
 - 15 - 实现可靠的 WebSocket
 - 16 - vue2(Object.defineProperty)和 vue3(Proxy)响应式区别
 - 17 - 命令式弹框的封装
+- 18 - 基于 el-date-picker 多值组件封装(将日期范围组件的绑定模式从数组改为两个独立的变量)
