@@ -6,7 +6,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import { setDirective } from './directives/index.js'
 
 // 命令式弹框zoom-in-center
-import commandPopup from './components/commondComponent/commandPopup.js'
+import commandPopup from './components/17-commondComponent/commandPopup.js'
 
 const app = createApp(App)
 

@@ -42,7 +42,7 @@
 // import fzTable from './components/14-简单快捷方式导出合并行或合并列且分页的表格.vue'
 // import websocket from './components/15-websocket.vue'
 // import websocketHook from './components/15-websocketHook.vue'
-import commandPopup from './components/commondComponent/index.vue' // 命令式弹窗
+import commandPopup from './components/17-commondComponent/index.vue' // 命令式弹窗
 </script>
 
 <style>
