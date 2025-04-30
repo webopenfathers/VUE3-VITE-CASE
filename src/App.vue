@@ -25,7 +25,8 @@
   <!-- <dateRangePicker></dateRangePicker> -->
   <!-- <excelTable></excelTable> -->
   <!-- <textVertical></textVertical> -->
-  <singleInstanceMessage></singleInstanceMessage>
+  <!-- <singleInstanceMessage></singleInstanceMessage> -->
+  <manyDataDownload></manyDataDownload>
 </template>
 
 <script setup>
@@ -50,7 +51,8 @@
 // import dateRangePicker from './components/18-multiValueComponent/index.vue' // 日期范围选择器
 // import excelTable from './components/19-导出excel某列多行合并功能且具有分页功能的表格.vue'
 // import textVertical from './components/20-文字在容器内竖向显示且文本溢出竖向显示省略号.vue'
-import singleInstanceMessage from './components/21-singleInstanceMessage/index.vue' // 单例模式-封装消息提示
+// import singleInstanceMessage from './components/21-singleInstanceMessage/index.vue' // 单例模式-封装消息提示
+import manyDataDownload from './components/22-manyDataDownload/index.vue' // 大数据下载
 </script>
 
 <style>
