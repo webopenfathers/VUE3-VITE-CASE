@@ -26,7 +26,8 @@
   <!-- <excelTable></excelTable> -->
   <!-- <textVertical></textVertical> -->
   <!-- <singleInstanceMessage></singleInstanceMessage> -->
-  <manyDataDownload></manyDataDownload>
+  <!-- <manyDataDownload></manyDataDownload> -->
+  <manyDataDownloadExcel></manyDataDownloadExcel>
 </template>
 
 <script setup>
@@ -52,7 +53,8 @@
 // import excelTable from './components/19-导出excel某列多行合并功能且具有分页功能的表格.vue'
 // import textVertical from './components/20-文字在容器内竖向显示且文本溢出竖向显示省略号.vue'
 // import singleInstanceMessage from './components/21-singleInstanceMessage/index.vue' // 单例模式-封装消息提示
-import manyDataDownload from './components/22-manyDataDownload/index.vue' // 大数据下载
+// import manyDataDownload from './components/22-manyDataDownload/index.vue' // 大数据下载
+import manyDataDownloadExcel from './components/23-manyDataDownloadExcel/index.vue' // 大数据下载
 </script>
 
 <style>
