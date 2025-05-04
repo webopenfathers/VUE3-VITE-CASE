@@ -27,7 +27,8 @@
   <!-- <textVertical></textVertical> -->
   <!-- <singleInstanceMessage></singleInstanceMessage> -->
   <!-- <manyDataDownload></manyDataDownload> -->
-  <manyDataDownloadExcel></manyDataDownloadExcel>
+  <!-- <manyDataDownloadExcel></manyDataDownloadExcel> -->
+  <raceCondition></raceCondition>
 </template>
 
 <script setup>
@@ -54,7 +55,8 @@
 // import textVertical from './components/20-文字在容器内竖向显示且文本溢出竖向显示省略号.vue'
 // import singleInstanceMessage from './components/21-singleInstanceMessage/index.vue' // 单例模式-封装消息提示
 // import manyDataDownload from './components/22-manyDataDownload/index.vue' // 大数据下载
-import manyDataDownloadExcel from './components/23-manyDataDownloadExcel/index.vue' // 大数据下载
+// import manyDataDownloadExcel from './components/23-manyDataDownloadExcel/index.vue' // 大数据下载
+import raceCondition from './components/24-raceCondition/index.vue' // 竟态问题
 </script>
 
 <style>
