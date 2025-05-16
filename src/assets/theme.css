@@ -1,0 +1,36 @@
+/* 实现类似 element-ui 的暗黑模式核心css */
+html.dark {
+  filter: invert(1) hue-rotate(180deg);
+  img,
+  video,
+  .avatar,
+  .image,
+  .thumb {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+/* 1. 重置基础动画和混合模式 */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none; /* 禁用默认动画 */
+  mix-blend-mode: normal; /* 使用正常混合模式 */
+}
+
+/* 2. 亮色主题时的层级控制 */
+::view-transition-old(root) {
+  z-index: 1; /* 旧视图(亮色)在底层 */
+}
+
+::view-transition-new(root) {
+  z-index: 2147483646; /* 新视图(暗色)在顶层(最大z-index值) */
+}
+
+/* 3. 暗色主题时的层级反转 */
+html.dark::view-transition-old(root) {
+  z-index: 2147483646; /* 旧视图(暗色)在顶层 */
+}
+
+html.dark::view-transition-new(root) {
+  z-index: 1; /* 新视图(亮色)在底层 */
+}

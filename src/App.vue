@@ -28,7 +28,8 @@
   <!-- <singleInstanceMessage></singleInstanceMessage> -->
   <!-- <manyDataDownload></manyDataDownload> -->
   <!-- <manyDataDownloadExcel></manyDataDownloadExcel> -->
-  <raceCondition></raceCondition>
+  <!-- <raceCondition></raceCondition> -->
+  <elementUITheme></elementUITheme>
 </template>
 
 <script setup>
@@ -56,12 +57,21 @@
 // import singleInstanceMessage from './components/21-singleInstanceMessage/index.vue' // 单例模式-封装消息提示
 // import manyDataDownload from './components/22-manyDataDownload/index.vue' // 大数据下载
 // import manyDataDownloadExcel from './components/23-manyDataDownloadExcel/index.vue' // 大数据下载
-import raceCondition from './components/24-raceCondition/index.vue' // 竟态问题
+// import raceCondition from './components/24-raceCondition/index.vue' // 竟态问题
+import elementUITheme from './components/25-elementUITheme/index.vue' // elementUI主题色切换
 </script>
 
 <style>
 * {
   padding: 0;
   margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
 }
 </style>
