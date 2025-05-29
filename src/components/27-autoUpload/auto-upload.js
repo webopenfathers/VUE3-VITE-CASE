@@ -1,14 +1,15 @@
 // 自动检测更新应用
 
 let lastSrcs // 上一次获取到的script地址
-const scriptReg = /\<script.*src=["'](?<src>[^"']+)/gm
+// const scriptReg = /\<script.*src=["'](?<src>[^"']+)/gm
+const scriptReg = /<script[^>]*src\s*=\s*["'](?<src>[^"']*)["'][^>]*>/gi
 
 /**
  * 获取最新页面中的script链接
  */
 async function extractNewScripts() {
-  const html = await fetch(location.href + '?_timestamp=' + Date.now()).then(
-    (res) => res.text()
+  const html = await fetch('/?_timestamp=' + Date.now()).then((res) =>
+    res.text()
   )
   console.log(html, 'html')
   scriptReg.lastIndex = 0
