@@ -7,7 +7,7 @@ import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import { setDirective } from './directives/index.js'
 
 // 自动检测应用更新脚本
-import './components/27-autoUpload/auto-upload.js'
+import './components/27-autoUpdate/auto-update.js'
 
 // 命令式弹框zoom-in-center
 import commandPopup from './components/17-commondComponent/commandPopup.js'
