@@ -30,7 +30,8 @@
   <!-- <manyDataDownloadExcel></manyDataDownloadExcel> -->
   <!-- <raceCondition></raceCondition> -->
   <!-- <elementUITheme></elementUITheme> -->
-  <timeSharingFun></timeSharingFun>
+  <!-- <timeSharingFun></timeSharingFun> -->
+  <fileStreamDownload></fileStreamDownload>
 </template>
 
 <script setup>
@@ -60,7 +61,8 @@
 // import manyDataDownloadExcel from './components/23-manyDataDownloadExcel/index.vue' // 大数据下载
 // import raceCondition from './components/24-raceCondition/index.vue' // 竟态问题
 // import elementUITheme from './components/25-elementUITheme/index.vue' // elementUI主题色切换
-import timeSharingFun from './components/26-timeSharingFun/index.vue' // 时间分片函数
+// import timeSharingFun from './components/26-timeSharingFun/index.vue' // 时间分片函数
+import fileStreamDownload from './components/28-fileStreamDownload/index.vue' // 文件流下载
 </script>
 
 <style>
