@@ -8,7 +8,10 @@ const scriptReg = /<script[^>]*src\s*=\s*["'](?<src>[^"']*)["'][^>]*>/gi
  * 获取最新页面中的script链接
  */
 async function extractNewScripts() {
-  const html = await fetch('/VUE3-VITE-CASE/?_timestamp=' + Date.now()).then(
+  // 优化获取地址
+  const { origin, pathname } = window.location
+  const currentURL = origin + pathname
+  const html = await fetch(currentURL + '?_timestamp=' + Date.now()).then(
     (res) => res.text()
   )
   console.log(html, 'html')
