@@ -68,9 +68,6 @@ function showUpdateDialog() {
     dialog.style.width = '100%'
     dialog.style.height = '100%'
     dialog.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-    dialog.style.display = 'flex'
-    dialog.style.justifyContent = 'center'
-    dialog.style.alignItems = 'center'
     dialog.style.zIndex = '9999'
 
     // 创建页面中间的box
@@ -79,6 +76,7 @@ function showUpdateDialog() {
     box.style.padding = '20px'
     box.style.borderRadius = '5px'
     box.style.textAlign = 'center'
+    box.style.margin = '10% auto auto'
     box.style.width = '35%'
 
     // 创建box中的提示文字
@@ -89,13 +87,12 @@ function showUpdateDialog() {
     const button = document.createElement('button')
     button.textContent = '确定'
     button.style.marginTop = '20px'
-    button.style.padding = '5px 10px'
+    button.style.padding = '5px 30px'
     button.style.backgroundColor = '#007bff'
     button.style.color = '#fff'
     button.style.border = 'none'
     button.style.borderRadius = '3px'
     button.style.cursor = 'pointer'
-    button.style.width = '100px'
 
     // 点击确定后关闭弹窗并 resolve Promise
     button.addEventListener('click', () => {
