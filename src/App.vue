@@ -32,7 +32,7 @@
   <!-- <elementUITheme></elementUITheme> -->
   <!-- <timeSharingFun></timeSharingFun> -->
   <!-- <fileStreamDownload></fileStreamDownload> -->
-  <!-- <beautifyJSON></beautifyJSON> -->
+  <!-- <beautifyJSON></beautifyJSON>  -->
   <parallaxScrolling></parallaxScrolling>
 </template>
 
