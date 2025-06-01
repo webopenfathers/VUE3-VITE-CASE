@@ -32,7 +32,8 @@
   <!-- <elementUITheme></elementUITheme> -->
   <!-- <timeSharingFun></timeSharingFun> -->
   <!-- <fileStreamDownload></fileStreamDownload> -->
-  <beautifyJSON></beautifyJSON>
+  <!-- <beautifyJSON></beautifyJSON> -->
+  <parallaxScrolling></parallaxScrolling>
 </template>
 
 <script setup>
@@ -64,7 +65,8 @@
 // import elementUITheme from './components/25-elementUITheme/index.vue' // elementUI主题色切换
 // import timeSharingFun from './components/26-timeSharingFun/index.vue' // 时间分片函数
 // import fileStreamDownload from './components/28-fileStreamDownload/index.vue' // 文件流下载
-import beautifyJSON from './components/29-beautifyJSON/index.vue' // JSON美化
+// import beautifyJSON from './components/29-beautifyJSON/index.vue' // JSON美化
+import parallaxScrolling from './components/30-parallaxScrolling/index.vue' // 视差滚动效果
 </script>
 
 <style>
