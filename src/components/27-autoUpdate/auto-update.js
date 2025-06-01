@@ -56,6 +56,61 @@ async function needUpdate() {
   return result
 }
 
+// 创建模态框
+// 返回一个 Promise 目的等待用户点击确定按钮后继续执行 autoRefresh()
+function showUpdateDialog() {
+  return new Promise((resolve) => {
+    // 创建简单的模态框--遮罩层
+    const dialog = document.createElement('div')
+    dialog.style.position = 'fixed'
+    dialog.style.top = '0'
+    dialog.style.left = '0'
+    dialog.style.width = '100%'
+    dialog.style.height = '100%'
+    dialog.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
+    dialog.style.display = 'flex'
+    dialog.style.justifyContent = 'center'
+    dialog.style.alignItems = 'center'
+    dialog.style.zIndex = '9999'
+
+    // 创建页面中间的box
+    const box = document.createElement('div')
+    box.style.backgroundColor = '#fff'
+    box.style.padding = '20px'
+    box.style.borderRadius = '5px'
+    box.style.textAlign = 'center'
+    box.style.width = '35%'
+
+    // 创建box中的提示文字
+    const text = document.createElement('p')
+    text.textContent = '页面脚本已更新，请点击确定获取最新版本。'
+
+    // 创建确定按钮
+    const button = document.createElement('button')
+    button.textContent = '确定'
+    button.style.marginTop = '20px'
+    button.style.padding = '5px 10px'
+    button.style.backgroundColor = '#007bff'
+    button.style.color = '#fff'
+    button.style.border = 'none'
+    button.style.borderRadius = '3px'
+    button.style.cursor = 'pointer'
+    button.style.width = '100px'
+
+    // 点击确定后关闭弹窗并 resolve Promise
+    button.addEventListener('click', () => {
+      document.body.removeChild(dialog)
+      resolve()
+    })
+
+    // 页面中追加元素
+    box.appendChild(text)
+    box.appendChild(button)
+    dialog.appendChild(box)
+    document.body.appendChild(dialog)
+  })
+}
+
 /**
  * 自动刷新页面脚本
  */
@@ -64,10 +119,8 @@ function autoRefresh() {
   setTimeout(async () => {
     const willUpdate = await needUpdate()
     if (willUpdate) {
-      const result = confirm('页面脚本发生变化，点击确定刷新页面？')
-      if (result) {
-        location.reload()
-      }
+      await showUpdateDialog()
+      location.reload()
     }
 
     autoRefresh()

@@ -7,7 +7,7 @@
       <h1>Hey look, a title</h1>
     </section>
     <section class="layer-3">
-      <h1>They just keep coming</h1>
+      <h1>They just keep comming</h1>
     </section>
     <section class="layer-4">
       <h1>So smooth though</h1>
