@@ -39,7 +39,7 @@ onMounted(() => {
         duration: 3,
         scrollTrigger: {
           trigger: section,
-          scroller: '#content', // Use the container for scrolling
+          scroller: '#content', // 指定滚动容器(重要)
           scrub: true,
         },
       }
