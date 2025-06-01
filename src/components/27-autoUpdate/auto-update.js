@@ -57,7 +57,7 @@ async function needUpdate() {
 }
 
 // 创建模态框
-// 返回一个 Promise 目的等待用户点击确定按钮后继续执行 autoRefresh()
+// 返回一个 Promise 目的等待用户点击确定按钮后继续执行autoRefresh()
 function showUpdateDialog() {
   return new Promise((resolve) => {
     // 创建简单的模态框--遮罩层
