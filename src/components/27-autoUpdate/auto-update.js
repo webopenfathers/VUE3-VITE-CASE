@@ -8,7 +8,8 @@ const scriptReg = /<script[^>]*src\s*=\s*["'](?<src>[^"']*)["'][^>]*>/gi
  * 获取最新页面中的script链接
  */
 async function extractNewScripts() {
-  // 优化获取地址
+  // 优化前地址 ------ '/?_timestamp=' + Date.now()
+  // 优化后地址 ------ currentURL + '?_timestamp=' + Date.now()
   const { origin, pathname } = window.location
   const currentURL = origin + pathname
   const html = await fetch(currentURL + '?_timestamp=' + Date.now()).then(
