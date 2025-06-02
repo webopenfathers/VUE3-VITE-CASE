@@ -10,8 +10,12 @@ import { setDirective } from './directives/index.js'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
-// 自动检测应用更新脚本
-import './components/27-autoUpdate/auto-update.js'
+console.log(import.meta.env.VITE_NODE_ENV, '环境变量')
+
+// 自动检测应用更新脚本(仅在生产环境引入)
+if (import.meta.env.VITE_NODE_ENV === 'prod') {
+  import('./components/27-autoUpdate/auto-update.js')
+}
 
 // 命令式弹框zoom-in-center
 import commandPopup from './components/17-commondComponent/commandPopup.js'
