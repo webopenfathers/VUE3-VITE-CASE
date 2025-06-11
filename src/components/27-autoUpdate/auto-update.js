@@ -73,21 +73,33 @@ function showUpdateDialog() {
     // 创建页面中间的box
     const box = document.createElement('div')
     box.style.backgroundColor = '#fff'
-    box.style.padding = '20px'
+    box.style.paddingBottom = '16px'
     box.style.borderRadius = '5px'
     box.style.textAlign = 'center'
     box.style.margin = '10% auto auto'
     box.style.width = '35%'
 
+    // 创建标题
+    const title = document.createElement('div')
+    title.textContent = '页面已更新'
+    title.style.color = '#303133'
+    title.style.fontSize = '16px'
+    title.style.textAlign = 'left'
+    title.style.borderBottom = '1px solid #ccc'
+    title.style.padding = '10px'
+
     // 创建box中的提示文字
     const text = document.createElement('p')
+    text.style.fontSize = '14px'
+    text.style.margin = '16px'
+    text.style.color = '#606266'
     text.textContent = '页面脚本已更新，请点击确定获取最新版本。'
 
     // 创建确定按钮
     const button = document.createElement('button')
     button.textContent = '确定'
-    button.style.marginTop = '20px'
-    button.style.padding = '5px 30px'
+    button.style.fontSize = '14px'
+    button.style.padding = '5px 25px'
     button.style.backgroundColor = '#007bff'
     button.style.color = '#fff'
     button.style.border = 'none'
@@ -101,6 +113,7 @@ function showUpdateDialog() {
     })
 
     // 页面中追加元素
+    box.appendChild(title)
     box.appendChild(text)
     box.appendChild(button)
     dialog.appendChild(box)
