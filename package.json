@@ -26,6 +26,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
+    "sass": "^1.89.2",
     "vite": "^5.2.0"
   }
 }

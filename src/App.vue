@@ -33,7 +33,8 @@
   <!-- <timeSharingFun></timeSharingFun> -->
   <!-- <fileStreamDownload></fileStreamDownload> -->
   <!-- <beautifyJSON></beautifyJSON> -->
-  <parallaxScrolling></parallaxScrolling>
+  <!-- <parallaxScrolling></parallaxScrolling> -->
+  <sassStarrySky></sassStarrySky>
 </template>
 
 <script setup>
@@ -66,7 +67,8 @@
 // import timeSharingFun from './components/26-timeSharingFun/index.vue' // 时间分片函数
 // import fileStreamDownload from './components/28-fileStreamDownload/index.vue' // 文件流下载
 // import beautifyJSON from './components/29-beautifyJSON/index.vue' // JSON美化
-import parallaxScrolling from './components/30-parallaxScrolling/index.vue' // 视差滚动动效
+// import parallaxScrolling from './components/30-parallaxScrolling/index.vue' // 视差滚动动效
+import sassStarrySky from './components/31-sassStarrySky/index.vue' // sass实现星空
 </script>
 
 <style>
