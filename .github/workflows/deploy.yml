@@ -13,18 +13,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Clean up before install
-        run: |
-          rm -rf node_modules package-lock.json
-          npm cache clean --force
-
       # 打包构建
       - name: Build
         uses: actions/setup-node@master
         with:
           node-version: '20.x'
-      - run: npm install # 安装依赖
-      - run: npm run build # 打包
+
+      # 新增的清理步骤
+      - name: Clean up before install
+        run: |
+          rm -rf node_modules package-lock.json
+          npm cache clean --force
+
+      # 安装依赖
+      - name: Install dependencies
+        run: npm install
+
+      # 打包
+      - name: Build project
+        run: npm run build
 
       # 部署到 GitHub pages
       - name: Deploy
