@@ -4,7 +4,7 @@
       <h1>Simple parallax sections</h1>
     </section>
     <section class="layer-2">
-      <h1>Hey look a title</h1>
+      <h1>Hey look, a title</h1>
     </section>
     <section class="layer-3">
       <h1>They just keep comming</h1>
@@ -13,7 +13,7 @@
       <h1>So smooth though</h1>
     </section>
     <section class="layer-5">
-      <h1>Nice night</h1>
+      <h1>Nice, night</h1>
     </section>
   </div>
 </template>
