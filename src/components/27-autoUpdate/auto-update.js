@@ -1,7 +1,11 @@
 // 自动检测更新应用
 
-let lastSrcs // 上一次获取到的script地址
-// const scriptReg = /\<script.*src=["'](?<src>[^"']+)/gm
+import { ElMessage, ElMessageBox } from 'element-plus'
+
+// 上一次获取到的script地址
+let lastSrcs
+
+// 匹配script标签的正则
 const scriptReg = /<script[^>]*src\s*=\s*["'](?<src>[^"']*)["'][^>]*>/gi
 
 /**
@@ -60,64 +64,27 @@ async function needUpdate() {
 // 返回一个 Promise 目的等待用户点击确定按钮后继续执行autoRefresh()
 function showUpdateDialog() {
   return new Promise((resolve) => {
-    // 创建简单的模态框--遮罩层
-    const dialog = document.createElement('div')
-    dialog.style.position = 'fixed'
-    dialog.style.top = '0'
-    dialog.style.left = '0'
-    dialog.style.width = '100%'
-    dialog.style.height = '100%'
-    dialog.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'
-    dialog.style.zIndex = '9999'
-
-    // 创建页面中间的box
-    const box = document.createElement('div')
-    box.style.backgroundColor = '#fff'
-    box.style.paddingBottom = '16px'
-    box.style.borderRadius = '5px'
-    box.style.textAlign = 'center'
-    box.style.margin = '10% auto auto'
-    box.style.width = '35%'
-
-    // 创建标题
-    const title = document.createElement('div')
-    title.textContent = '页面已更新'
-    title.style.color = '#303133'
-    title.style.fontSize = '16px'
-    title.style.textAlign = 'left'
-    title.style.borderBottom = '1px solid #ccc'
-    title.style.padding = '10px'
-
-    // 创建box中的提示文字
-    const text = document.createElement('p')
-    text.style.fontSize = '14px'
-    text.style.margin = '16px'
-    text.style.color = '#606266'
-    text.textContent = '页面脚本已更新，请点击确定获取最新版本。'
-
-    // 创建确定按钮
-    const button = document.createElement('button')
-    button.textContent = '确定'
-    button.style.fontSize = '14px'
-    button.style.padding = '5px 25px'
-    button.style.backgroundColor = '#007bff'
-    button.style.color = '#fff'
-    button.style.border = 'none'
-    button.style.borderRadius = '3px'
-    button.style.cursor = 'pointer'
-
-    // 点击确定后关闭弹窗并 resolve Promise
-    button.addEventListener('click', () => {
-      document.body.removeChild(dialog)
-      resolve()
-    })
-
-    // 页面中追加元素
-    box.appendChild(title)
-    box.appendChild(text)
-    box.appendChild(button)
-    dialog.appendChild(box)
-    document.body.appendChild(dialog)
+    ElMessageBox.confirm(
+      '检测到页面脚本已更新，请点击确定获取最新版本。',
+      '脚本更新',
+      {
+        showClose: false,
+        closeOnClickModal: false,
+        showCancelButton: false,
+        confirmButtonText: '确定',
+        type: 'warning',
+      }
+    )
+      .then(() => {
+        ElMessage({
+          type: 'success',
+          message: '获取最新版本成功，正在刷新页面...',
+        })
+        setTimeout(() => {
+          resolve()
+        }, 1000)
+      })
+      .catch((error) => {})
   })
 }
 
