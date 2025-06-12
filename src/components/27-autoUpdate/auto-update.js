@@ -65,8 +65,8 @@ async function needUpdate() {
 function showUpdateDialog() {
   return new Promise((resolve) => {
     ElMessageBox.confirm(
-      '检测到页面脚本已更新，请点击确定获取最新版本。',
-      '脚本更新',
+      '检测到新功能已上线，请点击确定获取最新版本。',
+      '版本更新',
       {
         showClose: false,
         closeOnClickModal: false,
