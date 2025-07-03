@@ -36,7 +36,8 @@
   <!-- <parallaxScrolling></parallaxScrolling> -->
   <!-- <sassStarrySky></sassStarrySky> -->
   <!-- <sseServer></sseServer> -->
-  <customEvent></customEvent>
+  <!-- <customEvent></customEvent> -->
+  <dynamicForm></dynamicForm>
 </template>
 
 <script setup>
@@ -72,7 +73,8 @@
 // import parallaxScrolling from './components/30-parallaxScrolling/index.vue' // 视差滚动动效
 // import sassStarrySky from './components/31-sassStarrySky/index.vue' // sass实现星空
 // import sseServer from './components/32-sseService/index.vue'
-import customEvent from './components/33-customEvent/index.vue' // 自定义事件
+// import customEvent from './components/33-customEvent/index.vue' // 自定义事件
+import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
 </script>
 
 <style>
