@@ -37,7 +37,8 @@
   <!-- <sassStarrySky></sassStarrySky> -->
   <!-- <sseServer></sseServer> -->
   <!-- <customEvent></customEvent> -->
-  <dynamicForm></dynamicForm>
+  <!-- <dynamicForm></dynamicForm> -->
+  <compositeFunForm></compositeFunForm>
 </template>
 
 <script setup>
@@ -74,7 +75,8 @@
 // import sassStarrySky from './components/31-sassStarrySky/index.vue' // sass实现星空
 // import sseServer from './components/32-sseService/index.vue'
 // import customEvent from './components/33-customEvent/index.vue' // 自定义事件
-import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
+// import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
+import compositeFunForm from './components/35-compositeFunForm/index.vue' // 组合式函数封装动态表单
 </script>
 
 <style>
