@@ -38,7 +38,8 @@
   <!-- <sseServer></sseServer> -->
   <!-- <customEvent></customEvent> -->
   <!-- <dynamicForm></dynamicForm> -->
-  <compositeFunForm></compositeFunForm>
+  <!-- <compositeFunForm></compositeFunForm> -->
+  <elementCeiling></elementCeiling>
 </template>
 
 <script setup>
@@ -76,7 +77,8 @@
 // import sseServer from './components/32-sseService/index.vue'
 // import customEvent from './components/33-customEvent/index.vue' // 自定义事件
 // import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
-import compositeFunForm from './components/35-compositeFunForm/index.vue' // 组合式函数封装动态表单
+// import compositeFunForm from './components/35-compositeFunForm/index.vue' // 组合式函数封装动态表单
+import elementCeiling from './components/36-elementCeiling/index.vue'
 </script>
 
 <style>
@@ -89,7 +91,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #fff;
 }
 </style>
