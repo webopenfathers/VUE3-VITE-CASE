@@ -34,4 +34,5 @@
 - 34 - 封装 vue 动态表单的设计与实现
 - 35 - 封装组合式函数 useFormBuilder 实现动态表单
 - 36 - 实现监听元素滚动到某个位置时 吸顶操作
-- 37 - 实现 el-form 嵌套 el-table 实现必填校验以及 使用 el-checkbox 实现动态列
+- 37 - 实现 el-form 嵌套 el-table 实现必填校验以及使用 el-checkbox 实现动态列
+- 38 - 实现 el-form 嵌套 el-table 实现必填校验以及使用 el-checkbox 实现动态列编辑和不可编辑功能
