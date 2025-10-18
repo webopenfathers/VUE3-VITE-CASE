@@ -39,7 +39,8 @@
   <!-- <customEvent></customEvent> -->
   <!-- <dynamicForm></dynamicForm> -->
   <!-- <compositeFunForm></compositeFunForm> -->
-  <elementCeiling></elementCeiling>
+  <!-- <elementCeiling></elementCeiling> -->
+  <dynamicTable></dynamicTable>
 </template>
 
 <script setup>
@@ -78,7 +79,8 @@
 // import customEvent from './components/33-customEvent/index.vue' // 自定义事件
 // import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
 // import compositeFunForm from './components/35-compositeFunForm/index.vue' // 组合式函数封装动态表单
-import elementCeiling from './components/36-elementCeiling/index.vue'
+// import elementCeiling from './components/36-elementCeiling/index.vue'
+import dynamicTable from './components/37-dynamicTableValidation/index.vue' // el-form嵌套el-table实现编辑校验
 </script>
 
 <style>
