@@ -21,29 +21,23 @@
       </el-checkbox-group>
     </el-form-item>
     <el-table :data="formData.tableData" border :row-key="(row) => row.id">
-      <!-- <el-table-column label="姓名">
+      <el-table-column label="SBOM编码">
         <template #default="scope">
           <el-form-item
+            v-if="formData.type.includes('1')"
             :key="scope.$index"
-            :prop="'tableData.' + scope.$index + '.name'"
-            :rules="rules.name"
+            :prop="`tableData.${scope.$index}.sbomCode`"
+            :rules="{
+              required: true,
+              message: '必填',
+            }"
           >
-            <el-input v-model="scope.row.name" />
+            <el-input v-model="scope.row['sbomCode']" />
           </el-form-item>
+          <p v-else>{{ scope.row['sbomCode'] }}</p>
         </template>
       </el-table-column>
-      <el-table-column label="年龄">
-        <template #default="scope">
-          <el-form-item
-            :key="scope.$index"
-            :prop="'tableData.' + scope.$index + '.age'"
-            :rules="rules.name"
-          >
-            <el-input v-model="scope.row.age" />
-          </el-form-item>
-        </template>
-      </el-table-column> -->
-      <template v-for="(item, index) in checkboxOptions">
+      <template v-for="(item, index) in checkboxOptions.slice(1)">
         <el-table-column
           :label="item.label"
           v-if="formData.type.includes(item.value)"
@@ -52,7 +46,6 @@
             <el-form-item
               :key="scope.$index"
               :prop="'tableData.' + scope.$index + `.${item.prop}`"
-              :rules="{ required: true, message: item.label + '必填' }"
             >
               <!-- 选择select -->
               <el-select
@@ -117,21 +110,34 @@ const checkboxOptions = [
 
 const formData = ref({
   type: [],
-  tableData: [
-    { name: 'zhangbo', age: 18 },
-    { name: 'zhangbo', age: 18 },
-  ],
+  tableData: [{ sbomCode: '12580' }, { sbomCode: '12581' }],
 })
 
 const onSubmit = () => {
   formRef.value.validate((valid) => {
     if (valid) {
+      // 处理不在修改类型中的字段为空字符串
+      resetFields()
       // 表单校验通过，执行提交逻辑
       console.log(formData.value, 'pp')
     } else {
       // 表单校验失败，提示用户
       return false
     }
+  })
+}
+
+// 根据修改类型重置表格字段 && 并且保留所有字段或者保留原值
+const resetFields = () => {
+  const selectedTypes = formData.value.type
+  formData.value.tableData.forEach((row) => {
+    checkboxOptions.forEach((ele) => {
+      if (!selectedTypes.includes(ele.value) && ele.value !== '1') {
+        row[ele.prop] = ''
+      } else if (selectedTypes.includes(ele.value)) {
+        row[ele.prop] = row[ele.prop] || '' // 保持原值不变
+      }
+    })
   })
 }
 </script>

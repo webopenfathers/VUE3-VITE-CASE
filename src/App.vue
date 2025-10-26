@@ -40,8 +40,8 @@
   <!-- <dynamicForm></dynamicForm> -->
   <!-- <compositeFunForm></compositeFunForm> -->
   <!-- <elementCeiling></elementCeiling> -->
-  <!-- <dynamicTable></dynamicTable> -->
-  <dynamicTableValidIsEdit></dynamicTableValidIsEdit>
+  <dynamicTable></dynamicTable>
+  <!-- <dynamicTableValidIsEdit></dynamicTableValidIsEdit> -->
 </template>
 
 <script setup>
@@ -81,8 +81,8 @@
 // import dynamicForm from './components/34-dynamicForm/index.vue' // 动态表单
 // import compositeFunForm from './components/35-compositeFunForm/index.vue' // 组合式函数封装动态表单
 // import elementCeiling from './components/36-elementCeiling/index.vue'
-// import dynamicTable from './components/37-dynamicTableValidation/index.vue' // el-form嵌套el-table实现编辑校验
-import dynamicTableValidIsEdit from './components/38-dynamicTableValidIsEdit/index.vue' // el-form嵌套el-table实现编辑校验-优化版
+import dynamicTable from './components/37-dynamicTableValidation/index.vue' // el-form嵌套el-table实现编辑校验
+// import dynamicTableValidIsEdit from './components/38-dynamicTableValidIsEdit/index.vue' // el-form嵌套el-table实现编辑校验-优化版
 </script>
 
 <style>
